@@ -1,0 +1,46 @@
+{% include 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- BEGIN: Content-->
+    <div class="app-content content">
+        <div class="content-wrapper">
+            <div class="content-wrapper-before"></div>
+            <div class="content-body">
+                <!-- Basic Tables start -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-content collapse show">
+                                <div class="card-body">
+                                    <p><span class="text-bold-600">Results History</span></p>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Expression</th>
+                                                    <th>Results</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for obj in obj %}
+                                                <tr>
+                                                    <td>{{ obj.expression }}</td>
+                                                    <td>{{ obj.result }}</td>
+                                                </tr>
+                                             {% endfor %}
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Basic Tables end -->
+            </div>
+        </div>
+    </div>
+        <!-- END: Content-->
+{% endblock %}

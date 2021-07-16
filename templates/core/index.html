@@ -1,0 +1,51 @@
+{% include 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- BEGIN: Content-->
+    <div class="app-content content">
+        <div class="content-wrapper">
+            <div class="content-wrapper-before"></div>
+
+            <div class="content-body">
+                <!-- Basic Inputs start -->
+                <section class="basic-inputs">
+
+                    <div class="row match-height">
+
+                        <div class="col-xl-4 col-lg-6 col-md-12">
+                            <h4 class="card-title mx-1">Enter Expression</h4>
+                            <div class="card-block">
+                                <div class="card-body">
+                                    <form id="form" method="post">
+                                        {% csrf_token %}
+                                        <fieldset class="form-group">
+                                            <input type="text" class="form-control" id="values" name="values"
+                                                   value="{{ values }}">
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="margin-top: 70px">=</p>
+                        <div class="col-xl-4 col-lg-6 col-md-12">
+                            <h4 class="card-title mx-2">Result</h4>
+                            <div class="card-block">
+                                <div class="card-body">
+                                    <fieldset class="form-group">
+                                        <input type="text" class="form-control" id="result" name="result"
+                                               value="{{ result }}">
+                                    </fieldset>
+                                </div>
+                                <button type="button" onclick="document.getElementById('form').submit()"
+                                        class="btn btn-light btn-min-width mb-1 mx-2">Calculate
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <!-- END: Content-->
+{% endblock %}

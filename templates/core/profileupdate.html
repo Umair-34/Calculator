@@ -1,0 +1,42 @@
+{% include 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- BEGIN: Content-->
+    <div class="app-content content">
+        <div class="content-wrapper">
+            <div class="content-wrapper-before"></div>
+            <div class="content-body">
+                <!-- Basic Tables start -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <h4 class="mx-3 my-1">Update Profile</h4>
+                            <div class="col-6">
+                                {% include 'error.html' %}
+                                {% if messages %}
+                                    <div class="messages">
+                                        {% for message in messages %}
+                                            <div class="alert alert-info">
+                                                {% if message.tags %}
+                                                    {{ message }}
+                                                {% endif %}
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <form method="post" class="mx-3 my-1">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <button type="submit" class="btn btn-light btn-min-width mb-1 ">Update</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- Basic Tables end -->
+            </div>
+        </div>
+    </div>
+    <!-- END: Content-->
+{% endblock %}

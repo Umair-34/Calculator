@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
+    <style>
+        HTML CSSResult Skip Results Iframe
+        EDIT ON
+        html, body {
+            height: 100%;
+        }
+
+        .global-container {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f5f5f5;
+            margin-top: 5%;
+        }
+
+        form {
+            padding-top: 10px;
+            font-size: 14px;
+            margin-top: 30px;
+        }
+
+        .card-title {
+            font-weight: 300;
+        }
+
+        .btn {
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+
+        .login-form {
+            width: 330px;
+            margin: 20px;
+        }
+
+        .sign-up {
+            text-align: center;
+            padding: 20px 0 0;
+        }
+
+        .alert {
+            margin-bottom: -30px;
+            font-size: 13px;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="global-container">
+    <div class="card login-form">
+        <div class="card-body">
+            <h3 class="card-title text-center">SignUp </h3>
+            <div class="card-text">
+                {% include 'error.html' %}
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Username</label><br>
+                        {{ form.username }}
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label><br>
+                        {{ form.password1 }}
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Confirm Password</label><br>
+                        {{ form.password2 }}
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">First Name</label><br>
+                        {{ form.first_name }}
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Last Name</label><br>
+                        {{ form.last_name }}
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+
+                    <div class="sign-up">
+                        Already have an account? <a href="{% url 'accounts:login' %}">Sign In</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
