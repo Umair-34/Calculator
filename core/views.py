@@ -11,8 +11,6 @@ from django.contrib.messages.views import SuccessMessageMixin
 
 @login_required(login_url='accounts:login')  # login required decorator
 def calculation(request):
-    final_result = ''
-    values = ''
     if request.method == "POST":
         values = request.POST['values']  # string having whole ques
         try:
@@ -23,8 +21,8 @@ def calculation(request):
             else:
                 final_result = "Undefined Error"
         History.objects.create(user=request.user, expression=values, result=final_result)
-
-    return render(request, 'core/index.html', {'result': final_result, 'values': values})
+        return render(request, 'core/index.html', {'result': final_result, 'values': values})
+    return render(request, 'core/index.html')
 
 
 @login_required(login_url='accounts:login')  # login required decorator
